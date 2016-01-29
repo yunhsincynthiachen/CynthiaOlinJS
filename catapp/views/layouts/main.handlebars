@@ -42,12 +42,17 @@
 
     {{{body}}}
   </body>
+
 </html>
 
 <script>
 function getsorthtml() {
 	var color =document.getElementById("colorsort").value;
 	console.log(color);
-	document.location.href = "/cats/bycolor/" + color;
+    if (color == ""){
+        document.location.href = "/cats/bycolor/nocolor";
+    } else {
+        document.location.href = "/cats/bycolor/" + color;
+    }
 }
 </script>
