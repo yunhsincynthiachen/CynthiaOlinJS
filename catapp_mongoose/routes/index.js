@@ -79,7 +79,7 @@ var newcat = function(req,res){
 var filtercolor = function(req,res) {
 	//Finds cats that are of a particular color
 	var searched_color = req.params.color;
-	Cat.find({"color": searched_color}, function (err,cats_color){
+	Cat.find({"color": searched_color}).sort('age').exec(function (err,cats_color){
 		if (err) {
 			res.sendStatus(500);
 			return;
@@ -130,7 +130,7 @@ var agerange = function(req,res) {
 		var min = range_age[0];
 		var max = range_age[1];
 
-		Cat.find({"age": {$gt: min, $lt: max}}, function (err,range_cats){
+		Cat.find({"age": {$gte: min, $lte: max}}).sort('age').exec(function (err,range_cats){
 			if (err) {
 				res.sendStatus(500);
 				return;
