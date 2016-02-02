@@ -124,12 +124,14 @@ var deleteold = function(req,res) {
 
 //Gets All Cats in an Age Range
 var agerange = function(req,res) {
-	try {
+	//If there is an age range specified, we will get max and min and 
+	if (req.params.range != "noage") {
 		var range_age = (req.params.range).split("-");
 
 		var min = range_age[0];
 		var max = range_age[1];
 
+		//Find cats that meet the age range and sorts by age
 		Cat.find({"age": {$gte: min, $lte: max}}).sort('age').exec(function (err,range_cats){
 			if (err) {
 				res.sendStatus(500);
@@ -139,17 +141,16 @@ var agerange = function(req,res) {
 		    if (!range_cats) {
 				return;
 		    } else {
-		    	//If no color was searched, the render will be different:
+		    	//Render the age range and the cats that fit the criteria
 		    	var range = "All of the Cats in Range of " + min + " to " + max;
 
 				res.render("agerange", {"age":range, "cats":range_cats});
 		    	return;
 		    }
 		})	
-	} catch(err) {
-		var range = "All of the Cats in Range of " + min + " to" + max;
-
-		res.render("agerange", {"age":range, "cats":range_cats});
+	} else {
+		//If no age was searched, the render will be different:
+		res.render("agerange", {"age":"No Age Specified", "cats":""});
 	}
 }
 //All of the different module exports
