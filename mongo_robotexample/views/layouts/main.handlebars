@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Express Intro</title>
+    <link href="../../../stylesheets/styles.css" rel="stylesheet">
+    <link href="../../../stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../../images/cat.jpg">
+  </head>
+
+  <body>
+  	<div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" id="colorsort" class="form-control" placeholder="Cats By Color! (e.g. Red)">
+                                <span class="input-group-btn">
+	                                <button class="btn btn-default" type="button" onclick="getsorthtml()">
+	                                    <i class="fa fa-search"></i>
+	                                </button>
+                            	</span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="/cats/new">Create New Cat!</a>
+                        </li>
+                        <li>
+                            <a href="/cats">View All Cats!</a>
+                        </li>
+                        <li>
+                            <a href="/cats/delete/old">Delete Oldest Cat!</a>
+                        </li>
+                    </ul>
+                </div>
+    </div>
+
+    {{{body}}}
+  </body>
+
+</html>
+
+<script>
+function getsorthtml() {
+	var color =document.getElementById("colorsort").value;
+	console.log(color);
+    if (color == ""){
+        document.location.href = "/cats/bycolor/nocolor";
+    } else {
+        document.location.href = "/cats/bycolor/" + color;
+    }
+}
+</script>

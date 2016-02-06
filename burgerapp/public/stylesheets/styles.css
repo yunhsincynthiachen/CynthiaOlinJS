@@ -1,0 +1,40 @@
+body::after {
+  content: "";
+  background: url(../images/catbackground.jpg) scroll repeat 0 0;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;   
+  border: 1px solid transparent;
+  background-repeat: repeat;
+}
+
+.navbar {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.navbar a:focus {
+  outline: none;
+}
+.navbar .navbar-nav {
+  letter-spacing: 1px;
+}
+.navbar .navbar-nav li a:focus {
+  outline: none;
+}
+.navbar-default,
+.navbar-inverse {
+  border: none;
+}
+
+.disable.InStock {
+  color:black;
+}
+
+.disable.NoStock {
+  color:grey;
+}
