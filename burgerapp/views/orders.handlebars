@@ -1,0 +1,47 @@
+<h1>Order</h1>
+<form id="order-ajax-form" action="order" method="POST" style="padding-left:50px">
+  Order Name: <input type="text" name="name"/><br/><br/>
+  {{#each ingredient}}
+  	<div class="container {{this.outofstock}}">
+	  	<div class="cover"></div>
+		  <input type="checkbox" name="ingredientname" class="boxcheck" value={{this._id}}>{{this.name}}, ${{this.price}}
+		</div>
+	</div>
+  {{/each}}
+  <p>Total Price: $<span id="pricenum">0</span></p>
+  <input type="submit" value="Add" style="margin-left:100px">
+</form>
+<h1>Orders List:</h1>
+
+<div id="orderlist">
+	<form class="order" id="hidden" method="POST" style="border:2px solid #999;display:none">
+			<br>
+			<p style="position:absolute"><b>Order Name:</b> <span id="ordername">Hi</span>
+			<br>
+			<b>Ingredients: </b>
+			<span id="ingre">
+			Ingredients </span> <br> <b>Total Price:</b> $<span id="totprice">50</span>
+			</p>
+			<br>
+			<br>
+			<br>
+	</form>
+	{{#each order}}
+		{{#unless this.iscomplete}}
+		<form class="order" id={{this._id}} method="POST" style="border:2px solid #999">
+			<br>
+			<p style="position:absolute"><b>Order Name:</b> <span id="ordername">{{this.name}}</span>
+			<br>
+			<b>Ingredients: </b>
+			<span id="ingre">
+			{{#each this.ingredients}}
+			{{#if @last}}{{this.name}}{{else}}{{this.name}},{{/if}}
+			{{/each}}</span> <br> <b>Total Price:</b> $<span id="totprice">{{this.totalprice}}</span>
+			</p>
+			<br>
+			<br>
+			<br>
+		</form>
+		{{/unless}}
+	{{/each}}
+</div>

@@ -29,7 +29,11 @@
 			<br>
 			Ingredient Price: ${{this.price}}<br><br></p>
 			<input style="float:right;position:relative" type="button" class="edit" value="Edit">
-			<input style="float:right;position:relative" type="button" class="disable {{this.outofstock}}" value={{this.outofstock}} >
+			{{#if outofstock}}
+				<input style="float:right;position:relative" type="button" class="disable {{this.outofstock}}" value="Out of Stock">
+			{{else}}
+				<input style="float:right;position:relative" type="button" class="disable {{this.outofstock}}" value="In Stock">
+			{{/if}}
 			<br>
 			<br>
 			<div id="editing" style="display:none;border:2px solid #999">

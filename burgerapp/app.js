@@ -9,6 +9,10 @@ var index = require('./routes/index');
 
 var ingredient = require('./routes/ingredient.js');
 
+var order = require('./routes/order.js');
+
+var kitchen = require('./routes/kitchen.js');
+
 var app = express();
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -26,7 +30,12 @@ app.post('/ingredient', ingredient.getIngredientPOST);
 app.delete('/ingredient/:divid', ingredient.getIngredientDELETE);
 app.post('/ingredient/:divid', ingredient.getIngredientEDIT);
 
-app.get('/order', index.order)
+app.get('/orders', index.ordershome);
+app.post('/order', order.getOrderPOST);
+app.get('/order/:orderid', order.getOrderGET);
+app.get('/orderingredients/:orderid', order.getOrderIngredientsGET);
 
+app.get('/kitchen', index.kitchenhome);
+app.post('/completeorder/:orderid', kitchen.completeOrder);
 
 app.listen(3000);

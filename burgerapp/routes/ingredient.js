@@ -36,7 +36,7 @@ routes.getIngredientPOST = function(req, res) {
   ingredient.name = b.name;
   ingredient.price = parseInt(b.price);
   ingredient.quantity = 1;
-  ingredient.outofstock = "InStock";
+  ingredient.outofstock = false;
 
   ingredient.save(function(err) {
     if (err) {
@@ -93,5 +93,22 @@ routes.getIngredientEDIT = function(req,res) {
     }
   });
 }
+
+routes.getOrderPOST = function(req, res) {
+  var b = req.body;
+
+  var burger = new Burger();
+  burger.name = b.name;
+  burger.ingredients = b.ingredients;
+
+  burger.save(function(err) {
+    if (err) {
+      res.sendStatus(500);
+      return;
+    }
+    res.send(burger);
+    return;
+  })
+};
 
 module.exports = routes;

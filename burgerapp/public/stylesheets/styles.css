@@ -31,10 +31,31 @@ body::after {
   border: none;
 }
 
-.disable.InStock {
+.disable.false {
   color:black;
 }
 
-.disable.NoStock {
+.disable.true {
   color:grey;
+}
+
+.container{
+  position:relative;
+  display:block;
+
+}
+.cover{
+  width:100%;
+  height:100%;
+  background:transparent;
+  position:absolute;
+  z-index:2;
+  top:0;
+  left:0;
+  display:none;
+
+}
+
+.container.true .cover{
+  display:block;
 }

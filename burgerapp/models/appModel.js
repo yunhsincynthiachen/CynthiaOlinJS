@@ -6,11 +6,14 @@ var ingredientSchema = mongoose.Schema({
 	'name' : String,
 	'price' : { type: Number, min: 0, max: 100 },
 	'quantity' : { type: Number, min: 0, max: 1000 },
-	'outofstock' : String
+	'outofstock' : Boolean
 });
 
 var burgerSchema = mongoose.Schema({
-	'ingredients' : [String]
+	'name' : String,
+	'totalprice' : { type: Number, min: 0, max: 1000 },
+	'ingredients' : [String],
+	'iscomplete' : Boolean
 })
 
 module.exports = {
