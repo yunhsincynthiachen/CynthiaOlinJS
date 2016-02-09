@@ -84,10 +84,6 @@ p,
   border: none;
 }
 
-.disable.false {
-  color:black;
-}
-
 .disable.true {
   color:grey;
 }
@@ -120,7 +116,7 @@ p,
 .edit,
 .complete {
     border-radius: 0;
-    color: #fff;
+    color: black;
     background-color: rgba(0,0,0,0.4);
 }
 

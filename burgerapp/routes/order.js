@@ -10,6 +10,7 @@ var async = require("async");
 
 var routes = {};
 
+//Get the one burger information:
 routes.getOrderGET = function(req,res) {
 	var data_id = req.params.orderid;
 
@@ -30,6 +31,7 @@ routes.getOrderGET = function(req,res) {
   });
 }
 
+//Get all ingredients and total price of a burger:
 routes.getOrderIngredientsGET = function(req,res) {
 	var data_id = req.params.orderid;
 
@@ -75,7 +77,7 @@ routes.getOrderIngredientsGET = function(req,res) {
   });
 }
 
-
+//Create the order and save the burger data to the server:
 routes.getOrderPOST = function(req, res) {
   var b = req.body;
 
@@ -95,4 +97,5 @@ routes.getOrderPOST = function(req, res) {
   })
 };
 
+//export these routes
 module.exports = routes;

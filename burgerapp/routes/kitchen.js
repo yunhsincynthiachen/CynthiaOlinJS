@@ -10,6 +10,7 @@ var async = require("async");
 
 var routes = {};
 
+//Change the burger order to iscompleted when clicked on and send back that burger data to the clientside:
 routes.completeOrder = function(req,res) {
   var orderid = req.params.orderid;
   var b = req.body;

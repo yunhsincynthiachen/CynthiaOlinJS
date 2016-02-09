@@ -8,7 +8,7 @@ var db = mongoose.connection;
 
 var routes = {};
 
-
+//Get one ingredient, with the id information
 routes.getIngredientGET = function(req, res) {
   var divid = req.params.divid;
 
@@ -29,6 +29,7 @@ routes.getIngredientGET = function(req, res) {
   });
 };
 
+//Add a new ingredient
 routes.getIngredientPOST = function(req, res) {
   var b = req.body;
 
@@ -48,6 +49,7 @@ routes.getIngredientPOST = function(req, res) {
   })
 };
 
+//Delete an ingredient
 routes.getIngredientDELETE = function(req,res) {
   var divid = req.params.divid;
   Ingredient.remove({ '_id' : divid  }, function(err, removed) {
@@ -59,6 +61,7 @@ routes.getIngredientDELETE = function(req,res) {
   });
 }
 
+//Change an ingredient's information
 routes.getIngredientEDIT = function(req,res) {
   var divid = req.params.divid;
   var b = req.body;
@@ -74,6 +77,7 @@ routes.getIngredientEDIT = function(req,res) {
       return;
     }
     else {
+      //For all of the keys given, check if they are empty, if not change the ingredient to have that info, and save
       for(var key in req.body) {
         if(req.body.hasOwnProperty(key)){
           if (b[key] != ""){
@@ -93,22 +97,5 @@ routes.getIngredientEDIT = function(req,res) {
     }
   });
 }
-
-routes.getOrderPOST = function(req, res) {
-  var b = req.body;
-
-  var burger = new Burger();
-  burger.name = b.name;
-  burger.ingredients = b.ingredients;
-
-  burger.save(function(err) {
-    if (err) {
-      res.sendStatus(500);
-      return;
-    }
-    res.send(burger);
-    return;
-  })
-};
 
 module.exports = routes;
