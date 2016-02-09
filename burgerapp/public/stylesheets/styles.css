@@ -19,6 +19,29 @@ body {
 html {
     width: 100%;
     height: 100%;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+input {
+  font-family: 'PT Sans Narrow', sans-serif;
+  width: 200px;
+    border: 2px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 4px  rgba(0,0,0,0.2),
+            0 0 8px rgba(0,0,0,0.2); 
+    -moz-box-shadow: 
+      inset 0 0 4px  rgba(0,0,0,0.2),
+            0 0 8px rgba(0,0,0,0.2); 
+    box-shadow: 
+      inset 0 0 4px  rgba(0,0,0,0.2),
+            0 0 8px rgba(0,0,0,0.2); 
+    padding: 2px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 5px 0;
+}
+
+input[type=checkbox] {
+   width: 20px;
 }
 
 h1,
@@ -27,7 +50,14 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+.add,
+.disable,
+.outofstock,
+.complete,
+.edit,
+.add_order,
+.add_ingredient {
     margin: 0 0 35px;
     text-transform: uppercase;
     font-family: 'PT Sans Narrow', sans-serif;
