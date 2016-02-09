@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/', index.home);
 app.get('/ingredients', index.ingredientshome);
 app.get('/ingredient/:divid', ingredient.getIngredientGET);
 app.post('/ingredient', ingredient.getIngredientPOST);

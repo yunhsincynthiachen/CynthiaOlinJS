@@ -155,23 +155,7 @@ $formorder.find('input:checkbox').change(function(){
 
 //Complete Order
 var onSuccessComplete = function(data, status) {
-  // console.log("completed order")
-  // var $form = $('form.kitchendone').first().clone();
-  // $form.attr('id', data._id);
-  // var text = data.name;
-  // $form.find('span#ordername').html(text);
-  // $.ajax({
-  //   'url' : '/orderingredients/'+data._id,
-  //   'type' : 'GET',
-  //   'success' : function(data) {
-  //     console.log(data)
-  //     $form.find('span#ingre').html(data["list_ing"].join(", "));  
-  //     $form.find('span#totprice').html(data["totprice"]);    
-  //     alert("Congratulations! You added an order!")     
-  //   }
-  // });
-  // $form.css("display","block");
-  // $('div#orderlist').append($form[0]); // place into document
+  $('form#'+data._id+" .complete").detach();
   $('div#compkitchenlist').append($( 'form#'+data._id ));
 };
 

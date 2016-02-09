@@ -26,13 +26,6 @@ routes.completeOrder = function(req,res) {
     }
     else {
     	burger['iscomplete'] = true;
-      // for(var key in req.body) {
-      //   if(req.body.hasOwnProperty(key)){
-      //     if (b[key] != ""){
-      //       burger[key] = b[key]
-      //     }
-      //   }
-      // }
       burger.save(function(err) {
         if (err) {
           res.sendStatus(500);

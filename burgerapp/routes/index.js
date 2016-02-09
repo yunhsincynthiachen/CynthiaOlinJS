@@ -9,6 +9,9 @@ var db = mongoose.connection;
 
 var async = require("async");
 
+var home = function(req,res){
+	res.render("home", {});
+}
 
 var ingredientshome = function(req, res){
 	Ingredient.find({ }, function(err, ingredient) {
@@ -115,6 +118,7 @@ var kitchenhome = function(req,res) {
   	});
 }
 
+module.exports.home = home;
 module.exports.kitchenhome = kitchenhome;
 module.exports.ingredientshome = ingredientshome;
 module.exports.ordershome = ordershome;

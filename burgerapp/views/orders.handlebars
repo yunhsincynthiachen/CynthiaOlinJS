@@ -1,4 +1,4 @@
-<h1>Order</h1>
+<h1>Add Order</h1>
 <form id="order-ajax-form" action="order" method="POST" style="padding-left:50px">
   Order Name: <input type="text" name="name"/><br/><br/>
   {{#each ingredient}}
@@ -11,7 +11,7 @@
   <p>Total Price: $<span id="pricenum">0</span></p>
   <input type="submit" value="Add" style="margin-left:100px">
 </form>
-<h1>Orders List:</h1>
+<h1>Pending Orders List:</h1>
 
 <div id="orderlist">
 	<form class="order" id="hidden" method="POST" style="border:2px solid #999;display:none">
