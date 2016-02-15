@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<header class="business-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="tagline" style="text-align:center">Login Page</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr>
+
+
+        <div class="text-center" style="padding:50px 0">
+            <!-- Main Form -->
+            <div class="login-form-1">
+                <form id="login-form" class="text-left">
+                    <div class="login-form-main-message"></div>
+                    <div class="main-login-form">
+                        <div class="login-group">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="Username">
+                            </div>
+                        </div>
+                        <button type="submit" class="login-button" style="float:right">Login <i class="fa fa-chevron-right"></i></button>
+                        <a href="/auth/facebook">Login with Facebook</a>
+                    </div>
+                </form>
+            </div>
+            <!-- end:Main Form -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <div class="container">
+        <hr>
+        <div class="row text-center">
+            <div class="col-md-9 text-center"><p>All Twotes</p>
+                <br>
+                <br>
+                <div class="col-md-8"><p>Twote</p></div>
+                <div class="col-md-3 text-right"><p>User</p></div>
+                <div id="twotes_all">
+                    {{#each all_twotes}}
+                    <br>
+                    <br>
+                    <div class="col-md-8 {{this.author_id}}"><p>{{this.text}}</p></div>
+                    <div class="col-md-3 {{this.author_id}} text-right"><p>{{this.author}}</p></div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="col-md-3" style="border: 5px solid #fff;"><p>Users</p>
+                {{#each users_all}}
+                <p class="user_author" id="{{this._id}}">{{this.author}}</p>
+                {{/each}}
+            </div>
+        </div>
+
+
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Twotter App 2016</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
