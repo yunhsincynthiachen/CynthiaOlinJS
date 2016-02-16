@@ -45,7 +45,6 @@ var twoteshome = function(req, res){
               res.sendStatus(500);
               return;
             }
-
             //Find all twotes that will be displayed on the bottom half of screen, sorted by date posted
             Twote.find({}).sort({'date_posted': 'desc'}).exec(function(err, twotes) {
               if (err) {
@@ -70,7 +69,7 @@ var twoteshome = function(req, res){
                   }
                   else {
                     //Render user, all the tweets and all users
-                    res.render("twoteshome", {"username": user, "all_twotes" : twotes, "users_all" : users});
+                    res.render("twoteshome", {"username": [user], "all_twotes" : twotes, "users_all" : users});
                     return;
                   }
                 })
