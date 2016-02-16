@@ -25,6 +25,7 @@ var onError = function(data, status) {
 //   console.log(name);
 // });
 
+//When twote has been added, append tweet info to div called #twotes_all
 var onSuccessAddTwote = function(data, status) {
   var text_whole =  "<div id='"+data._id+"'><br><div class='col-md-8 "+data.author_id+"'><p>"+data.text+"</p></div><div class='col-md-3 "+data.author_id+" text-right'><p>"+data.author+"</p></div>"+"<div class='col-md-1 "+ data.author_id+"'><button id='"+data._id+"' class='delete_btn'>Delete</button></div></div>"
   $('div#twotes_all').prepend(text_whole)
@@ -76,18 +77,4 @@ $('div').on('click', '.delete_btn', function() {
             $( "div" ).remove( "#"+result );
         }
   });
-  // $( "div.col-md-8."+authorid ).each(function( i ) {
-  //   if ( this.style.backgroundColor !== "white" ) {
-  //     this.style.backgroundColor = "white";
-  //   } else {
-  //     this.style.backgroundColor = "";
-  //   }
-  // });
-  // $( "div.col-md-3."+authorid ).each(function( i ) {
-  //   if ( this.style.backgroundColor !== "white" ) {
-  //     this.style.backgroundColor = "white";
-  //   } else {
-  //     this.style.backgroundColor = "";
-  //   }
-  // });
 })

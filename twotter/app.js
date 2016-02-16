@@ -20,17 +20,6 @@ var auth = require('./auth');
 var password = require("./password")(passport);
 
 
-// passport.use(new LocalStrategy(
-//   function(username, password, done) {
-//     User.findOne({ username: username }, function (err, user) {
-//       if (err) { return done(err); }
-//       if (!user) { return done(null, false); }
-//       if (!user.verifyPassword(password)) { return done(null, false); }
-//       return done(null, user);
-//     });
-//   }
-// ));
-
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(logger('dev'));
@@ -58,7 +47,7 @@ app.use(passport.session());
 //   });
 // });
 
-// app.get('/', index.twoteshome); //home route
+//When app is opened, if there is a sess.username, redirect to twotes, else login
 app.get("/", function(req, res){
   var sess = req.session;
   console.log(sess);
@@ -69,7 +58,7 @@ app.get("/", function(req, res){
   }
 });
 
-// process the login form
+// process the login form for local, but I don't have this working yet
 app.post('/login_local', 
   passport.authenticate('local', { failureRedirect: '/login' }),
   function(req, res) {
@@ -77,16 +66,7 @@ app.post('/login_local',
     res.redirect('/twotes');
   });
 
-// passport.use(new LocalStrategy(
-//   function(username, password, done) {
-//     User.findOne({ author: username }, function (err, user) {
-//       if (err) { return done(err); }
-//       if (!user) { return done(null, false); }
-//       return done(null, user);
-//     });
-//   }
-// ));
-
+//GET Requests for Facebook LogIn
 app.get('/auth/facebook', passport.authenticate('facebook'));
 
 app.get('/auth/facebook/callback',
@@ -94,18 +74,14 @@ app.get('/auth/facebook/callback',
                                       failureRedirect: '/login' })
 );
 
-
+//Logout of Facebook
 app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
 });
 
-// app.get('/login_local', function(req, res) {
-//   res.render('login.ejs', { message: req.flash('loginMessage') });
-// });
 
-
-
+//Routes for login and main page
 app.get("/login", index.userhome);
 app.post("/createuser", login.createUser);
 app.get("/twotes", ensureAuthenticated,index.twoteshome);
