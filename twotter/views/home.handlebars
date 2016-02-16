@@ -18,7 +18,7 @@
         <div class="text-center" style="padding:50px 0">
             <!-- Main Form -->
             <div class="login-form-1">
-                <form id="login-form" action="login_local" method="POST" class="text-left">
+                <form action="/login_local" method="POST" class="text-left">
                     <div class="login-form-main-message"></div>
                     <div class="main-login-form">
                         <div class="login-group">
@@ -27,10 +27,10 @@
                                 <input type="text" class="form-control" id="lg_password" name="lg_password" placeholder="Password">
                             </div>
                         </div>
-                        <button type="submit" class="login-button" style="float:right" href="/login_local">Login <i class="fa fa-chevron-right"></i></button>
-                        <a href="/auth/facebook">Login with Facebook</a>
+                        <button type="submit" class="login-button" style="float:right">Login <i class="fa fa-chevron-right"></i></button>
                     </div>
                 </form>
+                <a href="/auth/facebook">Login with Facebook</a>
             </div>
             <!-- end:Main Form -->
         </div>

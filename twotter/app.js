@@ -69,6 +69,24 @@ app.get("/", function(req, res){
   }
 });
 
+// process the login form
+app.post('/login_local', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    console.log("WAT")
+    res.redirect('/twotes');
+  });
+
+// passport.use(new LocalStrategy(
+//   function(username, password, done) {
+//     User.findOne({ author: username }, function (err, user) {
+//       if (err) { return done(err); }
+//       if (!user) { return done(null, false); }
+//       return done(null, user);
+//     });
+//   }
+// ));
+
 app.get('/auth/facebook', passport.authenticate('facebook'));
 
 app.get('/auth/facebook/callback',
@@ -86,11 +104,6 @@ app.get("/logout", function(req, res) {
 //   res.render('login.ejs', { message: req.flash('loginMessage') });
 // });
 
-// process the login form
-app.post('/login_local', passport.authenticate('local-login', {
-  successRedirect : '/twotes', // redirect to the secure profile section
-  failureRedirect : '/login' // redirect back to the signup page if there is an error
-}));
 
 
 app.get("/login", index.userhome);
