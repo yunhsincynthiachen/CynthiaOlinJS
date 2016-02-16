@@ -7,6 +7,7 @@ var exphbs  = require('express-handlebars');
 var session = require('express-session');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 
 var index = require('./routes/index');
 var login = require('./routes/login.js');
@@ -16,17 +17,19 @@ var app = express();
 
 var auth = require('./auth');
 
-passport.use(new FacebookStrategy({
-    clientID: auth.FACEBOOK_APP_ID,
-    clientSecret: auth.FACEBOOK_APP_SECRET,
-    callbackURL: auth.FACEBOOK_CALLBACK_URL
-  },
-  function(accessToken, refreshToken, profile, done) {
-    //This is not what you want to do here. 
-    //Here you should search the connected DB if the user exists and load that in, or add it to db.
-    done(null, profile);
-  }
-));
+var password = require("./password")(passport);
+
+
+// passport.use(new LocalStrategy(
+//   function(username, password, done) {
+//     User.findOne({ username: username }, function (err, user) {
+//       if (err) { return done(err); }
+//       if (!user) { return done(null, false); }
+//       if (!user.verifyPassword(password)) { return done(null, false); }
+//       return done(null, user);
+//     });
+//   }
+// ));
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -44,13 +47,16 @@ app.use(session({ secret: 'this is not a secret ;)',
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
 
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
+// passport.serializeUser(function(user, done) {
+//   done(null, user.id);
+// });
+
+// passport.deserializeUser(function(id, done) {
+//   User.findById(id, function (err, user) {
+//     done(err, user);
+//   });
+// });
 
 // app.get('/', index.twoteshome); //home route
 app.get("/", function(req, res){
@@ -70,23 +76,29 @@ app.get('/auth/facebook/callback',
                                       failureRedirect: '/login' })
 );
 
-app.get('/user', ensureAuthenticated, function(req, res) {
-  res.send(req.user);
-})
 
+app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+});
+
+// app.get('/login_local', function(req, res) {
+//   res.render('login.ejs', { message: req.flash('loginMessage') });
+// });
+
+// process the login form
+app.post('/login_local', passport.authenticate('local-login', {
+  successRedirect : '/twotes', // redirect to the secure profile section
+  failureRedirect : '/login' // redirect back to the signup page if there is an error
+}));
 
 
 app.get("/login", index.userhome);
 app.post("/createuser", login.createUser);
 app.get("/twotes", ensureAuthenticated,index.twoteshome);
 app.post("/createtwote/:userid", twotes.createTwote);
-app.delete("/deleteTwote/:divid", twotes.deleteTwote);
+app.delete("/deleteTwote/:userid/:tweetid", twotes.deleteTwote);
 
-//all ingredients routes:
-// app.get('/ingredients', index.ingredientshome);
-// app.get('/ingredient/:divid', ingredient.getIngredientGET);
-// app.post('/ingredient', ingredient.getIngredientPOST);
-// app.delete('/ingredient/:divid', ingredient.getIngredientDELETE);
 
 app.listen(3000);
 

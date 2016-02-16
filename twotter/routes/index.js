@@ -83,7 +83,7 @@ var twoteshome = function(req, res){
                     return;
                   }
                   else {
-                    res.render("twoteshome", {"username": user, "all_twotes" : setBooleanTweets(user[0]["author"], twotes), "users_all" : users});
+                    res.render("twoteshome", {"username": user, "all_twotes" : twotes, "users_all" : users});
                     return;
                   }
                 })

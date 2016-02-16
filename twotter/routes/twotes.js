@@ -43,14 +43,21 @@ routes.createTwote = function(req, res) {
 };
 
 routes.deleteTwote = function(req, res) {
-  var divid = req.params.divid;
-  Twote.remove({ '_id' : divid  }, function(err, removed) {
+  var tweetid = req.params.tweetid;
+  var userid = req.params.userid;
+  Twote.remove({ '_id' : tweetid  }, function(err, removed) {
     if (err) {
       res.sendStatus(500);
       return;
     }
-    // User.findOne({ '_id' : })
-    res.send(divid);
+    User.findByIdAndUpdate(userid, { $pull: { 'twotes': tweetid } },function(err,model){
+      if(err){
+        console.log(err);
+        return res.send(err);
+        }
+        res.send(tweetid);
+        return;
+    });
   });
 }
 

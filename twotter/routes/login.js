@@ -28,17 +28,4 @@ routes.createUser = function(req, res) {
   })
 };
 
-// //Delete an ingredient
-// routes.getIngredientDELETE = function(req,res) {
-//   var divid = req.params.divid;
-//   Ingredient.remove({ '_id' : divid  }, function(err, removed) {
-//     if (err) {
-//       res.sendStatus(500);
-//       return;
-//     }
-//     res.send(divid);
-//   });
-// }
-
-
 module.exports = routes;

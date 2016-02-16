@@ -11,12 +11,13 @@
     </div>
 </header>
 
+
     <!-- Page Content -->
     <div class="container">
 
         <hr>
 
-
+        <a href="/logout">LOGOUT</a>
         <div class="text-center" style="padding:50px 0">
             <!-- Main Form -->
             <div class="login-form-1">
@@ -48,14 +49,18 @@
                 <div id="twotes_all">
                     {{#each all_twotes}}
                     {{#if this.button}}
-                    <br>
-                    <div class="col-md-8 {{this.author_id}}"><p>{{this.text}}</p></div>
-                    <div class="col-md-3 {{this.author_id}} text-right"><p>{{this.author}}</p></div>
-                    <div class="col-md-1 {{this.author_id}}"><button id="{{this._id}}" class="delete_btn">Delete</button></div>
+                    <div id="{{this._id}}">
+                        <br>
+                        <div class="col-md-8 {{this.author_id}}"><p>{{this.text}}</p></div>
+                        <div class="col-md-3 {{this.author_id}} text-right"><p>{{this.author}}</p></div>
+                        <div class="col-md-1 {{this.author_id}}"><button id="{{this._id}}" class="delete_btn">Delete</button></div>
+                    </div>
                     {{else}}
-                    <br>
-                    <div class="col-md-8 {{this.author_id}}"><p>{{this.text}}</p></div>
-                    <div class="col-md-3 {{this.author_id}} text-right"><p>{{this.author}}</p></div>
+                    <div id="{{this._id}}">
+                        <br>
+                        <div class="col-md-8 {{this.author_id}}"><p>{{this.text}}</p></div>
+                        <div class="col-md-3 {{this.author_id}} text-right"><p>{{this.author}}</p></div>
+                    </div>
                     {{/if}}
                     {{/each}}
                 </div>
