@@ -39,7 +39,7 @@ $formtwote.submit(function(event) {
   event.preventDefault(); //prevents default event
   var twoteText = $formtwote.find("[name='twote_text']").val(); //grabs name
   var user_id = $(".tagline").attr("id") //grabs user id
-  var author_name = $(".tagline").html().substring(9, ($(".tagline").html()).length) //grabs user name
+  var author_name = $(".tagline").html().substring(20, ($(".tagline").html()).length) //grabs user name
   $.post("/createtwote/"+user_id, {
     author: author_name,
     author_id: user_id,
