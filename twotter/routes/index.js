@@ -9,50 +9,36 @@ var db = mongoose.connection;
 
 var async = require("async");
 
-// Load the full build.
-var _ = require('lodash');
-// Load the core build.
-var _ = require('lodash/core');
-// Load the fp build for immutable auto-curried iteratee-first data-last methods.
-var _ = require('lodash/fp');
 
-// Load a method category.
-var array = require('lodash/array');
-var object = require('lodash/fp/object');
+//Goes through all tweets and figures out if it's that particular author's tweet, so delete buttons only show on those tweets
+var setBooleanTweets = function (authorname, alltwotes){ //takes in authorname and all twotes in array
+  var with_boolean = new Array(); //gets filled with modified objects 
 
-// Load a single method for smaller builds with browserify/rollup/webpack.
-var chunk = require('lodash/chunk');
-var extend = require('lodash/fp/extend');
-
-
-var setBooleanTweets = function (authorname, alltwotes){
-  var with_boolean = new Array();
-  console.log(authorname);
   for (var i = 0; i< alltwotes.length;i++){
     if (alltwotes[i]['author'] == authorname) {
       var object_old = alltwotes[i]
-      object_old['button'] = true
+      object_old['button'] = true //true for key button if author matches the author of the tweet
       with_boolean.push(object_old)
     } else {
       var object_old = alltwotes[i]
-      object_old['button'] = false
+      object_old['button'] = false //else false
       with_boolean.push(object_old)
     }
   }
-  console.log(with_boolean.toString())
-  return with_boolean
+  return with_boolean //return list of tweets
 }
 
-//Get all twotes
+//Get all twotes and display for the twotes home
 var twoteshome = function(req, res){
 
-  console.log(req.session.passport.user.displayName)
-  var username = req.session.passport.user.displayName;
+  var username = req.session.passport.user.displayName; //takes the username from the session
 
+  //Counts whether or not that username is  in database
   User.count({author : username}, function (err, count){ 
+    //IF NO USER HAS THAT NAME:
       if (count==0){
           var user = new User();
-          user.author = username;
+          user.author = username; //create new user and save
 
           user.save(function(err) {
             if (err) {
@@ -60,6 +46,7 @@ var twoteshome = function(req, res){
               return;
             }
 
+            //Find all twotes that will be displayed on the bottom half of screen, sorted by date posted
             Twote.find({}).sort({'date_posted': 'desc'}).exec(function(err, twotes) {
               if (err) {
                 res.sendStatus(500);
@@ -71,8 +58,7 @@ var twoteshome = function(req, res){
                 return;
               }
               else {
-                console.log(user.toString())
-                User.find({}, function(err,users) {
+                User.find({}, function(err,users) { //Find all users to display on the side
                   if (err) {
                     res.sendStatus(500);
                     return;
@@ -83,6 +69,7 @@ var twoteshome = function(req, res){
                     return;
                   }
                   else {
+                    //Render user, all the tweets and all users
                     res.render("twoteshome", {"username": user, "all_twotes" : twotes, "users_all" : users});
                     return;
                   }
@@ -91,6 +78,8 @@ var twoteshome = function(req, res){
             });
           })
         } else {
+
+          //Pretty much do the same thing if there is already that user, except don't create and save the user
           User.find({author : username}, function(err, user) {
             if (err) {
               res.sendStatus(500);
@@ -131,6 +120,7 @@ var twoteshome = function(req, res){
 };
 
 
+//For the login home: get all twotes to show in the bottom half
 var userhome = function(req,res) {
 
   Twote.find({}).sort({'date_posted': 'desc'}).exec(function(err, twotes) {

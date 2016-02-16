@@ -12,6 +12,7 @@ var routes = {};
 routes.createTwote = function(req, res) {
   var b = req.body;
 
+  //Create the new model
   var twote = new Twote();
   twote.author = b.author;
   twote.author_id = b.author_id;
@@ -20,12 +21,14 @@ routes.createTwote = function(req, res) {
   twote.deleted = false;
   twote.button = false;
 
+  //save twote
   twote.save(function(err) {
     if (err) {
       res.sendStatus(500);
       return;
     }
     else {
+      //Also, find the author and save the id to the author's list of twotes
       User.findOne({"author" : b.author}, function(err, user) {
         var user_twotes = user.twotes;
         user_twotes.push(twote._id)
@@ -42,17 +45,20 @@ routes.createTwote = function(req, res) {
   })
 };
 
+//To delete a tweet, take tweetid and userid. Delete tweet from user list of twotes, and delete twote completely from server
 routes.deleteTwote = function(req, res) {
   var tweetid = req.params.tweetid;
   var userid = req.params.userid;
+
+  //Tweet removed from twote models
   Twote.remove({ '_id' : tweetid  }, function(err, removed) {
     if (err) {
       res.sendStatus(500);
       return;
     }
+    //Delete tweetid from list of twotes
     User.findByIdAndUpdate(userid, { $pull: { 'twotes': tweetid } },function(err,model){
       if(err){
-        console.log(err);
         return res.send(err);
         }
         res.send(tweetid);

@@ -9,7 +9,7 @@ var db = mongoose.connection;
 var routes = {};
 
 
-//Add a new user
+//Add a new user: not really used because i couldn't figure out local strategys
 routes.createUser = function(req, res) {
   var sess = req.session;
   var b = req.body;
