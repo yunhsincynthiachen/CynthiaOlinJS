@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for javascripts/main.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">javascripts/main.js</span></h1>
+    <h2>
+        Statements: <span class="metric">18.42% <small>(14 / 76)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 8)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">18.42% <small>(14 / 76)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">javascripts/</a> &#187; main.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//onError function that is used for all submits
+var onError = <span class="fstat-no" title="function not covered" >function(data, status) {</span>
+<span class="cstat-no" title="statement not covered" >  console.log("status", status);</span>
+<span class="cstat-no" title="statement not covered" >  console.log("error", data);</span>
+};
+&nbsp;
+// ADDING A NEW INGREDIENT
+var $formIng = $("#ingredient-ajax-form"); //add ingredient form
+&nbsp;
+//When ingredient has been successfully added:
+var onSuccessAdd = <span class="fstat-no" title="function not covered" >function(data, status) {</span>
+<span class="cstat-no" title="statement not covered" >  var $form = $('form.oldingredient').first().clone(); </span>//clone first form ingredient
+<span class="cstat-no" title="statement not covered" >  $form.attr('id', data._id); </span>//add attr id
+<span class="cstat-no" title="statement not covered" >  var text = 'Ingredient Name: '+ data.name + '&lt;br&gt; Ingredient Price: $' + data.price; </span>//format text
+<span class="cstat-no" title="statement not covered" >  $form.find('p').html(text); </span> //find the p tag where you put in the text
+<span class="cstat-no" title="statement not covered" >  $form.css("display","block"); </span>//css for changing display from hidden to block
+<span class="cstat-no" title="statement not covered" >  $('div#inglist').append($form[0]); </span>//append to location
+};
+&nbsp;
+//When submit button is pressed:
+$formIng.submit(<span class="fstat-no" title="function not covered" >function(event) {</span>
+<span class="cstat-no" title="statement not covered" >  event.preventDefault(); </span>//prevents default event
+<span class="cstat-no" title="statement not covered" >  var name = $formIng.find("[name='name']").val(); </span>//grabs name
+<span class="cstat-no" title="statement not covered" >  var price = $formIng.find("[name='price']").val(); </span>//grabs price
+  //AJAX request posting the ingredient information
+<span class="cstat-no" title="statement not covered" >  $.post("ingredient", {</span>
+    price: price,
+    name: name
+  })
+    .done(onSuccessAdd)
+    .error(onError);
+});
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+// DISABLE Stock
+//When disable button submits the changed data to the backend (could be a lot cleaner, but I wanted to use the same patch request for multiple things)
+var onSuccessDisable = <span class="fstat-no" title="function not covered" >function(data, status) {</span>
+&nbsp;
+  //If outofstock is false, change to black and say instock. If outofstock is true, change to grey and say out of stock
+<span class="cstat-no" title="statement not covered" >  if (data.outofstock === false){</span>
+<span class="cstat-no" title="statement not covered" >    $('form#'+data._id+" .disable").val("In Stock");</span>
+<span class="cstat-no" title="statement not covered" >    $('form#'+data._id+" .disable").css("color","black"); </span>
+  } else {
+<span class="cstat-no" title="statement not covered" >    $('form#'+data._id+" .disable").val("Out of Stock");</span>
+<span class="cstat-no" title="statement not covered" >    $('form#'+data._id+" .disable").css("color","grey"); </span>
+  }
+};
+&nbsp;
+//When disable button is clicked, find the value of the text, and then decide if we send false or true to the back:
+$('div').on('click', '.disable', <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  var div_id = ($(this).parent()).attr("id"); </span>//id of the form parent
+  //Check for what to edit in the backend:
+<span class="cstat-no" title="statement not covered" >  if ($('form#'+div_id+" .disable").val() == "In Stock"){</span>
+<span class="cstat-no" title="statement not covered" >      $.post("/ingredient/"+div_id, {</span>
+        outofstock : true
+      })
+    .done(onSuccessDisable)
+    .error(onError);
+  } else {
+<span class="cstat-no" title="statement not covered" >      $.post("/ingredient/"+div_id, {</span>
+        outofstock : false
+      })
+    .done(onSuccessDisable)
+    .error(onError);
+  }
+});
+&nbsp;
+&nbsp;
+&nbsp;
+//EDIT BUTTON PRESSED
+var onSuccessEdit = <span class="fstat-no" title="function not covered" >function(data, status) {</span>
+<span class="cstat-no" title="statement not covered" >  var text = 'Ingredient Name: '+ data.name + '&lt;br&gt; Ingredient Price: $' + data.price; </span>//Text change with the new edited details
+<span class="cstat-no" title="statement not covered" >  $('form#'+data._id+" p").html(text); </span>//Change html
+};
+&nbsp;
+//When edit button is clicked:
+$('div').on('click', '.edit', <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  var $parent = $(this).parent();</span>
+<span class="cstat-no" title="statement not covered" >  var div_id = ($(this).parent()).attr("id");</span>
+&nbsp;
+  //Find out if the editing form is already visible, and hide it if it is, else show it.
+<span class="cstat-no" title="statement not covered" >  if ( $parent.find('#editing').is(':visible') ){</span>
+<span class="cstat-no" title="statement not covered" >    $parent.find('#editing').hide(); </span>//hide if visible already
+  } else {
+<span class="cstat-no" title="statement not covered" >    $parent.find('#editing').show(); </span>//show if hidden
+<span class="cstat-no" title="statement not covered" >    var $formedit = $("#"+div_id); </span>//the formedit button for this is hooked up to the id
+&nbsp;
+    //when submitted: edit ajax request is sent
+<span class="cstat-no" title="statement not covered" >    $formedit.submit(<span class="fstat-no" title="function not covered" >function(event) {</span></span>
+<span class="cstat-no" title="statement not covered" >      event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >      var name = $formedit.find("[name='name']").val(); </span>//new name
+<span class="cstat-no" title="statement not covered" >      var price = $formedit.find("[name='price']").val(); </span>//new price
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      $.post("/ingredient/"+div_id, {</span>
+        price: price,
+        name: name
+      })
+        .done(onSuccessEdit)
+        .error(onError);
+    });
+  }
+});
+&nbsp;
+&nbsp;
+&nbsp;
+//ADD an Order
+var $formorder = $("#order-ajax-form"); //form of making an order
+&nbsp;
+//When order has been successfully added to the database:
+var onSuccessOrderAdd = <span class="fstat-no" title="function not covered" >function(data, status) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  var $form = $('form.order').first().clone();</span>
+<span class="cstat-no" title="statement not covered" >  $form.attr('id', data._id);</span>
+<span class="cstat-no" title="statement not covered" >  var text = data.name;</span>
+<span class="cstat-no" title="statement not covered" >  $form.find('span#ordername').html(text);</span>
+&nbsp;
+  //We get all of the ingredients for that order, as well as the total price of the order, and put it in the html
+<span class="cstat-no" title="statement not covered" >  $.ajax({</span>
+    'url' : '/orderingredients/'+data._id,
+    'type' : 'GET',
+    'success' : <span class="fstat-no" title="function not covered" >function(data) {</span>
+<span class="cstat-no" title="statement not covered" >      $form.find('span#ingre').html(data.list_ing.join(", "));  </span>
+<span class="cstat-no" title="statement not covered" >      $form.find('span#totprice').html(data.totprice);    </span>
+<span class="cstat-no" title="statement not covered" >      alert("Congratulations! You added an order!"); </span>//congratulations alert to send the user
+    }
+  });
+<span class="cstat-no" title="statement not covered" >  $form.css("display","block");</span>
+<span class="cstat-no" title="statement not covered" >  $('div#orderlist').append($form[0]); </span>//append to div
+};
+&nbsp;
+//When order submit button has been pressed:
+$formorder.submit(<span class="fstat-no" title="function not covered" >function(event) {</span>
+<span class="cstat-no" title="statement not covered" >  event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >  var name = $formorder.find("[name='name']").val(); </span>//find the name of the order
+&nbsp;
+  //Make an ingredients_list of all of the checkboxes val's (corresponds to ingredient id) that were added:
+<span class="cstat-no" title="statement not covered" >  var ingredients_list = [];</span>
+<span class="cstat-no" title="statement not covered" >  var checkboxes = $(this).closest('form').find('input:checkbox:checked');</span>
+<span class="cstat-no" title="statement not covered" >  for (var i = 0; i&lt;checkboxes.length; i++){</span>
+<span class="cstat-no" title="statement not covered" >    ingredients_list.push($(checkboxes[i]).val());</span>
+  }
+&nbsp;
+  //New object to send the server with: ingredients_list, name and total price that we take from the html
+<span class="cstat-no" title="statement not covered" >  var objectsubmit = {</span>
+    "ingredients": ingredients_list,
+    "name": name,
+    "totalprice":parseInt($formorder.find('#pricenum').html())
+  };
+&nbsp;
+  
+  //The post request that we make when order is submitted, and the on success html change:
+<span class="cstat-no" title="statement not covered" >  $.ajax({</span>
+      url: 'order',
+      type: "POST",
+      dataType: "json",
+      data: JSON.stringify(objectsubmit),
+      contentType: 'application/json; charset=utf-8',
+      success: onSuccessOrderAdd,
+      error: onError
+  });
+});
+&nbsp;
+&nbsp;
+//RUNNING COUNTER OF THE TOTAL PRICE OF ORDER
+//Ingredient is CHECKED, and this change is recognized
+$formorder.find('input:checkbox').change(<span class="fstat-no" title="function not covered" >function(){</span>
+    //WHEN CHECKED
+<span class="cstat-no" title="statement not covered" >    if ($(this).is(":checked")){</span>
+<span class="cstat-no" title="statement not covered" >      $.ajax({</span>
+        'url' : '/ingredient/'+$(this).val(),
+        'type' : 'GET',
+        'success' : <span class="fstat-no" title="function not covered" >function(data) {</span>
+          //the price of the ingredient is added to the current one on the html
+<span class="cstat-no" title="statement not covered" >          $formorder.find('#pricenum').html(parseInt($formorder.find('#pricenum').html())+parseInt(data.price));</span>
+        }
+      });
+    } else { //WHEN UNCHECKED
+<span class="cstat-no" title="statement not covered" >      $.ajax({</span>
+        'url' : '/ingredient/'+$(this).val(),
+        'type' : 'GET',
+        'success' : <span class="fstat-no" title="function not covered" >function(data) {</span>
+          //the price of the ingredient is removed from the current total price on html
+<span class="cstat-no" title="statement not covered" >          $formorder.find('#pricenum').html(parseInt($formorder.find('#pricenum').html())-parseInt(data.price));</span>
+        }
+      });
+    }
+});
+&nbsp;
+&nbsp;
+//WHEN ORDER IS COMPLETED AND THE COMPLETE BUTTON IS CLICKED ON
+//Complete Order
+var onSuccessComplete = <span class="fstat-no" title="function not covered" >function(data, status) {</span>
+<span class="cstat-no" title="statement not covered" >  $('form#'+data._id+" .complete").detach(); </span>//detach the form from complete
+<span class="cstat-no" title="statement not covered" >  $('div#compkitchenlist').append($( 'form#'+data._id )); </span>//add it to the completed list
+};
+&nbsp;
+//When complete button is clicked, post request to the backend to get the data changed to be complete
+$('div').on('click', '.complete', <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >  var $parent = $(this).parent();</span>
+<span class="cstat-no" title="statement not covered" >  var div_id = ($(this).parent()).attr("id");</span>
+<span class="cstat-no" title="statement not covered" >  $.post("/completeorder/"+div_id, {})</span>
+    .done(onSuccessComplete)
+    .error(onError);
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 19 2016 13:14:33 GMT-0500 (EST)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

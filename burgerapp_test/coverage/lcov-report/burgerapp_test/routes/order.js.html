@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for burgerapp_test/routes/order.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">burgerapp_test/routes/</a> order.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">55.36% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>31/56</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">55.36% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>31/56</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">var path = require('path');
+&nbsp;
+var Ingredient = require('../models/appModel.js').IngredientModel;
+var Burger = require('../models/appModel.js').BurgerModel;
+&nbsp;
+var mongoose = require('mongoose');
+var db = mongoose.connection;
+&nbsp;
+var async = require("async");
+&nbsp;
+var routes = {};
+&nbsp;
+//Get the one burger information:
+routes.getOrderGET = function(req,res) {
+	var data_id = req.params.orderid;
+&nbsp;
+	Burger.findOne({ '_id' : data_id  }, function(err, burger) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (err) {
+      res.sendStatus(500);
+      return;
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!burger) {</span>
+<span class="cstat-no" title="statement not covered" >      res.json({"error":"burger not found"});</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+    else {
+<span class="cstat-no" title="statement not covered" >      res.send(burger);</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+  });
+};
+&nbsp;
+//Get all ingredients and total price of a burger:
+routes.getOrderIngredientsGET = function(req,res) {
+	var data_id = req.params.orderid;
+&nbsp;
+	Burger.findOne({ '_id' : data_id  }, function(err, burger) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (err) {
+      res.sendStatus(500);
+      return;
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!burger) {</span>
+<span class="cstat-no" title="statement not covered" >      res.json({"error":"burger not found"});</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+    else {
+<span class="cstat-no" title="statement not covered" >		var burgers_ing = {};</span>
+<span class="cstat-no" title="statement not covered" >		var burgers = [];</span>
+<span class="cstat-no" title="statement not covered" >		var tot_price = 0;</span>
+<span class="cstat-no" title="statement not covered" >		async.each([burger], <span class="fstat-no" title="function not covered" >function(burger, callback) {</span></span>
+<span class="cstat-no" title="statement not covered" >    		Ingredient.find({</span>
+			    '_id': { $in: burger.ingredients}
+			}, <span class="fstat-no" title="function not covered" >function(err, docs){</span>
+<span class="cstat-no" title="statement not covered" >				docs.forEach(<span class="fstat-no" title="function not covered" >function(entry) {</span></span>
+<span class="cstat-no" title="statement not covered" >					tot_price = tot_price + entry.price;</span>
+<span class="cstat-no" title="statement not covered" >				    burgers.push(entry.name);</span>
+				});
+<span class="cstat-no" title="statement not covered" >				burgers_ing.list_ing = burgers;</span>
+<span class="cstat-no" title="statement not covered" >				burgers_ing.totprice = tot_price;</span>
+<span class="cstat-no" title="statement not covered" >			    callback();</span>
+			});
+		}, <span class="fstat-no" title="function not covered" >function(err){</span>
+		    // if any of the file processing produced an error, err would equal that error
+<span class="cstat-no" title="statement not covered" >		    if( err ) {</span>
+		      // One of the iterations produced an error.
+		      // All processing will now stop.
+<span class="cstat-no" title="statement not covered" >		      	console.log('A file failed to process');</span>
+		    } else {
+<span class="cstat-no" title="statement not covered" >		     	res.send(burgers_ing);</span>
+<span class="cstat-no" title="statement not covered" >      			return;</span>
+		    }
+		});
+    }
+  });
+};
+&nbsp;
+//Create the order and save the burger data to the server:
+routes.getOrderPOST = function(req, res) {
+  var b = req.body;
+&nbsp;
+  var burger = new Burger();
+  burger.name = b.name;
+  burger.ingredients = b.ingredients;
+  burger.totalprice = b.totalprice;
+  burger.iscomplete = false;
+&nbsp;
+  burger.save(function(err) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >      res.sendStatus(500);</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+    res.status(200).send(burger);
+    return;
+  });
+};
+&nbsp;
+//export these routes
+module.exports = routes;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 19 2016 14:39:56 GMT-0500 (EST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

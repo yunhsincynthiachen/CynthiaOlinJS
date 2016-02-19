@@ -1,0 +1,46 @@
+<h1>Add Ingredient</h1>
+<form id="ingredient-ajax-form" action="ingredient" method="POST" style="padding-left:50px">
+  Ingredient Name: <input type="text" name="name"/><br/><br/>
+  Ingredient Price:  <input type="number" name="price"/><br/>
+  <input type="submit" class="add_ingredient" value="Add" style="margin-left:25%">
+</form>
+<h1>Ingredients List:</h1>
+
+<div id="inglist">
+	<form class="oldingredient" id="hidden" method="POST" style="border:2px solid black;display:none">
+			<br>
+			<p style="position:absolute">Ingredient Name: Hello
+			<br>
+			Ingredient Price: $50<br><br></p>
+			<input style="float:right;position:relative" type="button" class="edit" value="Edit">
+			<input style="float:right;position:relative" type="button" class="disable outofstock" value="In Stock" >
+			<br>
+			<br>
+			<div id="editing" style="display:none;border:2px solid #999">
+				Ingredient Name: <input type="text" name="name"/><br/><br/>
+		  		Ingredient Price: <input type="number" name="price"/><br/>
+		  		<input type="submit" value="Submit Edit">
+			</div>
+	</form>
+	{{#each oldingredient}}
+		<form class="oldingredient" id={{this._id}} method="POST" style="border:2px solid black">
+			<br>
+			<p style="position:absolute">Ingredient Name: {{this.name}}
+			<br>
+			Ingredient Price: ${{this.price}}<br><br></p>
+			<input style="float:right;position:relative" type="button" class="edit" value="Edit">
+			{{#if outofstock}}
+				<input style="float:right;position:relative" type="button" class="disable {{this.outofstock}}" value="Out of Stock">
+			{{else}}
+				<input style="float:right;position:relative" type="button" class="disable {{this.outofstock}}" value="In Stock">
+			{{/if}}
+			<br>
+			<br>
+			<div id="editing" style="display:none;border:2px solid #999">
+				Ingredient Name: <input type="text" name="name"/><br/><br/>
+		  		Ingredient Price: <input type="number" name="price"/><br/>
+		  		<input type="submit" value="Submit Edit" style="margin-left:25%">
+			</div>
+		</form>
+	{{/each}}
+</div>

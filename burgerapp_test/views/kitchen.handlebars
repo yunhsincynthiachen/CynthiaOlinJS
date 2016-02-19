@@ -1,0 +1,70 @@
+<h1>List of Pending Orders</h1>
+
+<div id="kitchenlist">
+	<form class="kitchen" id="hidden" method="POST" style="border:2px solid #999;display:none">
+			<br>
+			<p style="position:absolute"><b>Order Name:</b> <span id="ordername">Hi</span>
+			<br>
+			<b>Ingredients: </b>
+			<span id="ingre">
+			Ingredients </span> <br> <b>Total Price:</b> $<span id="totprice">50</span>
+			</p>
+			<input style="float:right;position:relative" type="button" class="complete {{this.outofstock}}" value={{this.outofstock}} >
+			<br>
+			<br>
+			<br>
+	</form>
+	{{#each orders}}
+		{{#unless this.iscomplete}}
+		<form class="kitchen" id={{this._id}} method="POST" style="border:2px solid #999">
+			<br>
+			<p style="position:absolute"><b>Order Name:</b> <span id="ordername">{{this.name}}</span>
+			<br>
+			<b>Ingredients: </b>
+			<span id="ingre">
+			{{#each this.ingredients}}
+			{{#if @last}}{{this.name}}{{else}}{{this.name}},{{/if}}
+			{{/each}}</span> <br> <b>Total Price:</b> $<span id="totprice">{{this.totalprice}}</span>
+			</p>
+			<input style="float:right;position:relative" type="button" class="complete {{this.outofstock}}" value="Complete" >
+			<br>
+			<br>
+			<br>
+		</form>
+		{{/unless}}
+	{{/each}}
+</div>
+
+<h1>List of Completed Orders</h1>
+<div id="compkitchenlist">
+	<form class="kitchendone" id="hidden" method="POST" style="border:2px solid #999;display:none">
+			<br>
+			<p style="position:absolute"><b>Order Name:</b> <span id="ordername">Hi</span>
+			<br>
+			<b>Ingredients: </b>
+			<span id="ingre">
+			Ingredients </span> <br> <b>Total Price:</b> $<span id="totprice">50</span>
+			</p>
+			<br>
+			<br>
+			<br>
+	</form>
+	{{#each orders}}
+		{{#if this.iscomplete}}
+		<form class="kitchendone" id={{this._id}} method="POST" style="border:2px solid #999">
+			<br>
+			<p style="position:absolute"><b>Order Name:</b> <span id="ordername">{{this.name}}</span>
+			<br>
+			<b>Ingredients: </b>
+			<span id="ingre">
+			{{#each this.ingredients}}
+			{{#if @last}}{{this.name}}{{else}}{{this.name}},{{/if}}
+			{{/each}}</span> <br> <b>Total Price:</b> $<span id="totprice">{{this.totalprice}}</span>
+			</p>
+			<br>
+			<br>
+			<br>
+		</form>
+		{{/if}}
+	{{/each}}
+</div>
