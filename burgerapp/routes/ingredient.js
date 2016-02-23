@@ -63,23 +63,24 @@ routes.getIngredientDELETE = function(req,res) {
 
 //Change an ingredient's information
 routes.getIngredientEDIT = function(req,res) {
+  // I wouldn't give these variables new names -- takes up space you don't need to take up
   var divid = req.params.divid;
   var b = req.body;
 
   Ingredient.findOne({ '_id' : divid  }, function(err, ingredient) {
     if (err) {
-      res.sendStatus(500);
-      return;
+      return res.sendStatus(500); // you can put return on the same line, if you'd like
+      // Nice error handling, and I like that you're using return to manage your
+      // control flow -- much cleaner than tons of nested if/else statements.
     }
 
     if (!ingredient) {
       res.json({"error":"ingredient not found"});
       return;
-    }
-    else {
+    } else { // you don't even need this else -- you returned in the if
       //For all of the keys given, check if they are empty, if not change the ingredient to have that info, and save
-      for(var key in req.body) {
-        if(req.body.hasOwnProperty(key)){
+      for(var key in b) { // ...if you are going to give req.params.divid and req.body new names, be consistent about using them
+        if(b.hasOwnProperty(key)){
           if (b[key] != ""){
             ingredient[key] = b[key]
           }
@@ -93,9 +94,9 @@ routes.getIngredientEDIT = function(req,res) {
 
         res.send(ingredient);
         return;
-      })
+      });
     }
   });
-}
+}; // defined as a method on an object, so you need a semicolon
 
 module.exports = routes;
