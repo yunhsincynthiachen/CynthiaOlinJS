@@ -7,7 +7,9 @@ var db = mongoose.connection;
 
 var routes = {};
 
+//TO GET ALL ACTIVE TODOS
 routes.getactivetodos = function(req, res) {
+	//Only find the todos that are not completed and sort them
 	Todo.find({'completed':false}).sort({'date_posted': 'desc'}).exec(function(err, todos) {
 		if (err) {
 			res.sendStatus(500);
@@ -19,13 +21,15 @@ routes.getactivetodos = function(req, res) {
 			return;
 		}
       	else {
-      		res.json(todos);
+      		res.json(todos); //send all of the todos
       		return;
       	}
     })
 }
 
+//get all completed todos
 routes.getcompletedtodos = function(req, res) {
+	//find all todos that have true completed
 	Todo.find({'completed':true}).sort({'date_posted': 'desc'}).exec(function(err, todos) {
 		if (err) {
 			res.sendStatus(500);
@@ -43,7 +47,9 @@ routes.getcompletedtodos = function(req, res) {
     })
 }
 
+//get all todos
 routes.getalltodos = function(req, res) {
+	//get all todos (completed and active) and sort by date posted
 	Todo.find({}).sort({'date_posted': 'desc'}).exec(function(err, todos) {
 		if (err) {
 			res.sendStatus(500);
@@ -60,6 +66,8 @@ routes.getalltodos = function(req, res) {
       	}
     })
 }
+
+//post a todo
 routes.posttodo = function(req, res) {
   var b = req.body;
 
@@ -69,7 +77,7 @@ routes.posttodo = function(req, res) {
   todo.date_posted = new Date();
   todo.completed = false;
 
-  //save twote
+  //save todo
   todo.save(function(err) {
     if (err) {
      	res.sendStatus(500);
@@ -87,6 +95,7 @@ routes.posttodo = function(req, res) {
 				return;
 			}
 	      	else {
+	      		//get all todos and send
 	      		res.json(todos);
 	      		return;
 	      	}
@@ -95,6 +104,7 @@ routes.posttodo = function(req, res) {
   })
 };
 
+//edit route 
 routes.edittodo = function(req,res) {
 	var b = req.body;
 	var id_todo = req.params.id_todo;
@@ -117,6 +127,7 @@ routes.edittodo = function(req,res) {
 	          }
 	        }
 	      }
+	      //save edited todo
 	      todo.save(function(err) {
 	        if (err) {
 	          res.sendStatus(500);
@@ -129,6 +140,7 @@ routes.edittodo = function(req,res) {
 	})
 }
 
+//this is to "delete" from current html, but just change completed to true
 routes.deletetodo = function(req,res) {
 	var id_todo = req.params.id_todo;
 	Todo.findOne({'_id' : id_todo}, function(err,todo){
@@ -160,7 +172,7 @@ routes.deletetodo = function(req,res) {
 					return;
 				}
 		      	else {
-		      		res.json(todos);
+		      		res.json(todos); //send all not completed todos
 		      		return;
 		      	}
 		    })

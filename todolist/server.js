@@ -26,7 +26,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-//ROUTES: getting, posting, 
+//ROUTES: getting, posting, editing, completing todos
 app.get('/api/todos', index.getactivetodos);
 
 app.post('/api/todos', index.posttodo);

@@ -1,5 +1,8 @@
+//For the editable text of the todo through clicking on it
+//Clicking out will save the changes
 var ContentEditable = React.createClass({
     render: function(){
+      //render the span with input and blur changes, as well as shouldcomponentupdate
         return <span id={this.props.html.__idtodo}
             className="todotext" 
             onInput={this.emitChange} 
@@ -11,6 +14,7 @@ var ContentEditable = React.createClass({
         return nextProps.html !== ReactDOM.findDOMNode(this).innerHTML;
     },
     sendChange: function(){
+      //if change is sent, ajax request will be made to change it in the backend
         var html = ReactDOM.findDOMNode(this).innerHTML;
         var id = ReactDOM.findDOMNode(this).getAttribute("id")
         var text = html.replace(/(<p[^>]+?>|<p>|<\/p>)/img, "");
@@ -31,6 +35,7 @@ var ContentEditable = React.createClass({
         });
     },
     emitChange: function(){
+      //else, just change it on the frontend
         var html = ReactDOM.findDOMNode(this).innerHTML;
         if (this.props.onChange && html !== this.lastHtml) {
             this.props.onChange({
@@ -43,40 +48,40 @@ var ContentEditable = React.createClass({
     }
 });
 
+//if done button is clicked, the html is updated with the new version of data
 var DoneButton = React.createClass({
     render: function(){
-      // console.log(this.props)
         return <button id={this.props.html.__idtodo} onClick={this.deletetodo}>
           <span>X</span>
         </button>
     },
     deletetodo: function(){
-        var id = ReactDOM.findDOMNode(this).getAttribute("id")
+        var id = ReactDOM.findDOMNode(this).getAttribute("id") //gets the id of the completed button
         $.ajax({
             url: "/api/todos/completed/"+id,
             dataType: 'json',
             type: 'POST',
             success: function(data) {
-              console.log(data)
-              this.props.html.__this_parent.onUpdate(data);
+              this.props.html.__this_parent.onUpdate(data); //update html
             }.bind(this)
         });
     }
 });
 
+//The markup and class of each todo
 var Todo = React.createClass({
   rawMarkup: function() {
-    var this_parent = this.props.children[1];
-    var rawMarkup = marked(this.props.children[0].todoitem.toString(), {sanitize: true});
-    var idtodo = this.props.children[0]._id;
-    console.log(this_parent)
-    return { __html: rawMarkup, __idtodo: idtodo, __this_parent: this_parent};
+    var this_parent = this.props.children[1]; //gets the parent props (includes all of the collector functions)
+    var rawMarkup = marked(this.props.children[0].todoitem.toString(), {sanitize: true}); //rawmarkup of all itemss
+    var idtodo = this.props.children[0]._id; //id of all of the kids
+    return { __html: rawMarkup, __idtodo: idtodo, __this_parent: this_parent}; //return this as rawmarkup
   },
   render: function() {
       var handleChange = function(event){
         this.setState({html: event.target.value});
       }.bind(this);
     return (
+      //creates each individual todo item with done button on left and contenteditable span on the right
       <div className="todo">
         <div id="progress-button" className="progress-button">
           <DoneButton html={this.rawMarkup()}/>
@@ -88,13 +93,17 @@ var Todo = React.createClass({
   }
 });
 
+
+//ENTIRE TODO BOX:
 var TodoBox = React.createClass({
   onUpdate: function(val) {
+    //update function that takes in new version of data
       this.setState({
           data: val
       });
   },
   loadTodosFromServer: function() {
+    //grabs all data from the backend
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -114,6 +123,7 @@ var TodoBox = React.createClass({
     // not use Date.now() for this and would have a more robust system in place.
     var newTodos = todos.concat([todo]);
     this.setState({data: newTodos});
+    //makes post request of all of the data and sets the todolist as this
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -133,9 +143,8 @@ var TodoBox = React.createClass({
   },
   componentDidMount: function() {
     this.loadTodosFromServer();
-    // setInterval(this.loadTodosFromServer, this.props.pollInterval);
-  },
-  showAll: function() {
+  }, //ALL THE DIFFERENT FILTERS:
+  showAll: function() { //shows ALL of the todos
     $.ajax({
       url: this.props.url+"/all/",
       dataType: 'json',
@@ -149,7 +158,7 @@ var TodoBox = React.createClass({
       }.bind(this)
     });
   },
-  showAllActive: function() {
+  showAllActive: function() { //shows only the active ones
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -163,7 +172,7 @@ var TodoBox = React.createClass({
       }.bind(this)
     });
   },
-  showAllCompleted: function() {
+  showAllCompleted: function() { //shows only the completed ones
     $.ajax({
       url: this.props.url+"/completed/",
       dataType: 'json',
@@ -178,6 +187,7 @@ var TodoBox = React.createClass({
     });
   },
   render: function() {
+    //the render of the entire todobox
     return (
       <div className="todoBox">
         <h1>To Do List
@@ -198,6 +208,7 @@ var TodoBox = React.createClass({
   }
 });
 
+//todolist is the list of todos in the whole todobox
 var TodoList = React.createClass({
   render: function() {
     var parent_this = this.props.srcs;
@@ -216,6 +227,8 @@ var TodoList = React.createClass({
   }
 });
 
+
+//todoform is the top form that will add this to the top of the todolist
 var TodoForm = React.createClass({
   getInitialState: function() {
     return {todoitem: ''};
@@ -224,6 +237,7 @@ var TodoForm = React.createClass({
     this.setState({todoitem: e.target.value});
   },
   handleSubmit: function(e) {
+    //the submit will use the parent ontodosubmit to update the frontend
     e.preventDefault();
     var todoitem = this.state.todoitem.trim();
     if (!todoitem) {
@@ -234,6 +248,7 @@ var TodoForm = React.createClass({
   },
   render: function() {
     return (
+      //The render of the form on the top with the onsubmit targeting handleSubmit
       <form className="todoForm basic-grey" onSubmit={this.handleSubmit}>
         <input
           type="text"
