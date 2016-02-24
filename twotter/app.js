@@ -89,7 +89,11 @@ app.post("/createtwote/:userid", twotes.createTwote);
 app.delete("/deleteTwote/:userid/:tweetid", twotes.deleteTwote);
 
 
-app.listen(3000);
+app.set('port', (process.env.PORT || 3000));
+
+app.listen(app.get('port'), function() {
+  console.log('Server started: http://localhost:' + app.get('port') + '/');
+});
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }

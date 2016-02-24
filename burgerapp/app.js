@@ -43,4 +43,9 @@ app.get('/orderingredients/:orderid', order.getOrderIngredientsGET);
 app.get('/kitchen', index.kitchenhome);
 app.post('/completeorder/:orderid', kitchen.completeOrder);
 
-app.listen(3000);
+app.set('port', (process.env.PORT || 3000));
+
+
+app.listen(app.get('port'), function() {
+  console.log('Server started: http://localhost:' + app.get('port') + '/');
+});

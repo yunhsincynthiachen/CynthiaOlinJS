@@ -1,0 +1,2 @@
+# Procfile
+web: node app.js # Tell Heroku what command to use to run your app.
