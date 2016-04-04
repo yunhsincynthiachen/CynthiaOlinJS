@@ -57,7 +57,7 @@ module.exports = function(passport) {
             return done(err);
           }
 
-          if (!user) {
+          if (!user) { //Then how do you register new users?
             return done(null, false);
           }
 
