@@ -3,6 +3,7 @@ var expect = require('chai').expect;
 var Ingredient = require('./../../../models/appModel.js').IngredientModel;
 var Burger = require('./../../../models/appModel.js').BurgerModel;
 
+// Awesome work, Cynthia!
 
 describe('Ingredient Model', function() {
   it('should create a new ingredient', function(done) {

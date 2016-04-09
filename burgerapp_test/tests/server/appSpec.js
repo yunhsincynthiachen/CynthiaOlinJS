@@ -1,6 +1,7 @@
 var request = require('supertest');
 var app = require('./../../app.js');
 
+// Love the descriptions! Have nothing to add.. :)
 describe("The app", function() {
 
   //ROUTES
