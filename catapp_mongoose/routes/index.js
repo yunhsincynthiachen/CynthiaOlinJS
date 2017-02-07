@@ -21,8 +21,10 @@ var home = function(req,res){
 // Sorts cats by age and displays on allcats page
 var allcats = function(req, res){
 
+	//Great use of mongoose functions :D
 	Cat.find({}).sort('age').exec(function (err,cats_sorted_age){
 		if (err) {
+			//good error handling
 			res.sendStatus(500);
 			return;
 	    }

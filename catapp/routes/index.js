@@ -3,6 +3,7 @@ var router = express.Router();
 var db = require('../fakeDatabase');
 
 //Cat Object
+// might want use the OOP syntax. Not a huge deal
 function Cat(name,age,color){
   var cat = {
     name: name,
@@ -25,6 +26,7 @@ var home = function(req,res){
 }
 
 //Sorts cats by age and displays on allcats page
+//Function and variable name should be camelCased
 var allcats = function(req, res){
 	var all_cats = db.getAll();
 	all_cats.sort(function(a, b) {
@@ -42,6 +44,7 @@ var allcats = function(req, res){
 
 //Makes a random cat and displays the cat info, as well as adds it into the database
 var newcat = function(req,res){
+	// might want to pull these lists out into a seperate file and import them
 	var myArray_cat = ["Mika", "Zoher","Jay","Cynthia","Nitya","Sarah","Emily Engel","Olivia","Meredith","Jean","Chris","Curtis","Brad","Hugh Jackman","Michael Fassbender","Leonardo DiCaprio"];
 	var rand_cat = myArray_cat[Math.floor(Math.random() * myArray_cat.length)];
 
